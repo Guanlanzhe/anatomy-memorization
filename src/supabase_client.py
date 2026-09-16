@@ -31,9 +31,16 @@ def sign_up(email: str, password: str):
         return False, str(e)
 
 
-def sign_in(email: str, password: str):
-    """登录。返回 (success, user_id_or_error)。"""
+def sign_in(identifier: str, password: str):
+    """登录。identifier 可以是邮箱，也可以是纯用户名。"""
     sb = get_supabase()
+    
+    # 如果输入的不是标准邮箱格式，就拼接一个伪邮箱后缀
+    if "@" not in identifier:
+        email = f"{identifier}@anatomy.local"
+    else:
+        email = identifier
+        
     try:
         res = sb.auth.sign_in_with_password({"email": email, "password": password})
         if res.user:
