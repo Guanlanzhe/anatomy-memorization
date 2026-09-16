@@ -1,0 +1,13 @@
+/* ========== 全局字体 ========== */
+
+body, .stApp, .stMarkdown, .stText, p, span, div, label,
+h1, h2, h3, h4, h5, h6,
+input, textarea, button, select,
+.stButton > button, .stTextInput input,
+[data-testid="stMetricValue"], [data-testid="stMetricLabel"] {
+    font-family: "Times New Roman", "DengXian", "等线", serif !important;
+}
+
+code, pre, .stCodeBlock {
+    font-family: Consolas, Monaco, "Courier New", monospace !important;
+}

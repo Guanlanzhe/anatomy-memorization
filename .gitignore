@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# 数据（本地学习状态，不提交）
+data/learning_state.json
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+
+# 系统
+.DS_Store
+Thumbs.db
+
+# 备份
+*.bak
+*.bak2
+
+.streamlit/secrets.toml
