@@ -250,37 +250,114 @@ with tab_table:
 
     if not terms_for_view:
         st.info("没有可显示的术语。")
-    else:
-        # 搜索框（在表格内部再次过滤）
-        inner_query = st.text_input("在结果中搜索", "", key="table_inner_search")
+        st.stop()
 
-        rows = []
-        for t in terms_for_view:
-            en = t["english"].replace("_", " ")
-            zh = t.get("chinese", "")
-            rows.append({"中文": zh, "英文": en})
+    # ===== 学习状态筛选 =====
+    from src.supabase_client import get_current_user_id, get_supabase, get_user_threshold
 
-        if inner_query.strip():
-            q = inner_query.strip().lower()
-            rows = [r for r in rows if q in r["中文"].lower() or q in r["英文"].lower()]
+    user_id = get_current_user_id()
+    threshold = get_user_threshold()
 
-        st.caption(f"共 {len(rows)} 条")
+    # 从 Supabase 拿该用户所有做过题的状态
+    # 每个 term 的状态 = "该 term 下所有做过的卡片"的聚合
+    term_status = {}  # term_id -> "done_need_review" | "done_mastered" | "undone"
 
-        # 显示为表格
-        st.dataframe(
-            rows,
-            use_container_width=True,
-            hide_index=True,
-            height=min(700, 40 + len(rows) * 35),
-        )
+    if user_id:
+        sb = get_supabase()
+        try:
+            res = sb.table("learning_state").select("card_id, total_attempts, total_correct").eq("user_id", user_id).execute()
+            # 按 term_id 聚合
+            term_attempts = {}
+            term_correct = {}
+            for row in res.data:
+                cid = row["card_id"]
+                # card_id 形如 term_id:mode
+                parts = cid.split(":")
+                if len(parts) < 2:
+                    continue
+                tid = parts[0]
+                term_attempts[tid] = term_attempts.get(tid, 0) + row.get("total_attempts", 0)
+                term_correct[tid] = term_correct.get(tid, 0) + row.get("total_correct", 0)
 
-        # 下载按钮
-        import json as _json
-        csv = "中文,英文\n" + "\n".join(f"{r['中文']},{r['英文']}" for r in rows)
-        st.download_button(
-            "⬇️ 下载 CSV",
-            data=csv.encode("utf-8-sig"),
-            file_name="anatomy_terms.csv",
-            mime="text/csv",
-            key="download_csv",
-        )
+            for t in terms_for_view:
+                tid = t["id"]
+                a = term_attempts.get(tid, 0)
+                c = term_correct.get(tid, 0)
+                if a == 0:
+                    term_status[tid] = "undone"
+                elif c / a < threshold:
+                    term_status[tid] = "need_review"
+                else:
+                    term_status[tid] = "mastered"
+        except Exception as e:
+            st.warning(f"读学习状态失败：{e}")
+
+    # 未登录时都算未做
+    for t in terms_for_view:
+        if t["id"] not in term_status:
+            term_status[t["id"]] = "undone"
+
+    # 筛选控件
+    status_filter = st.multiselect(
+        "筛选学习状态",
+        ["未做", "需复习", "已掌握"],
+        default=["未做", "需复习", "已掌握"],
+        key="table_status_filter",
+    )
+
+    status_map = {
+        "undone": "未做",
+        "need_review": "需复习",
+        "mastered": "已掌握",
+    }
+
+    allowed = set()
+    if "未做" in status_filter:
+        allowed.add("undone")
+    if "需复习" in status_filter:
+        allowed.add("need_review")
+    if "已掌握" in status_filter:
+        allowed.add("mastered")
+
+    # 过滤后的术语
+    filtered_terms = [t for t in terms_for_view if term_status[t["id"]] in allowed]
+
+    # ===== 在结果中搜索 =====
+    inner_query = st.text_input("在结果中搜索", "", key="table_inner_search")
+
+    # 生成表格行
+    rows = []
+    for t in filtered_terms:
+        en = t["english"].replace("_", " ")
+        zh = t.get("chinese", "")
+        st_label = status_map[term_status[t["id"]]]
+        rows.append({"中文": zh, "英文": en, "状态": st_label})
+
+    if inner_query.strip():
+        q = inner_query.strip().lower()
+        rows = [r for r in rows if q in r["中文"].lower() or q in r["英文"].lower()]
+
+    # 按英文排序（A-Z）
+    rows.sort(key=lambda r: r["英文"].lower())
+
+    st.caption(f"共 {len(rows)} 条")
+
+    # 显示表格
+    st.dataframe(
+        rows,
+        use_container_width=True,
+        hide_index=True,
+        height=min(700, 40 + len(rows) * 35),
+    )
+
+    # 下载
+    csv = "中文,英文,状态\n" + "\n".join(
+        f"{r['中文']},{r['英文']},{r['状态']}" for r in rows
+    )
+    st.download_button(
+        "⬇️ 下载 CSV",
+        data=csv.encode("utf-8-sig"),
+        file_name="anatomy_terms.csv",
+        mime="text/csv",
+        key="download_csv",
+    )
