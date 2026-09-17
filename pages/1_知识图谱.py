@@ -331,14 +331,44 @@ with tab_table:
         en = t["english"].replace("_", " ")
         zh = t.get("chinese", "")
         st_label = status_map[term_status[t["id"]]]
-        rows.append({"中文": zh, "英文": en, "状态": st_label})
+        page = t.get("page")  # 注意：terms.json 里的字段叫 "page"，不是 "页码"
+        rows.append({
+            "中文": zh,
+            "英文": en,
+            "页码": page if page is not None else "",
+            "状态": st_label,
+        })
 
     if inner_query.strip():
         q = inner_query.strip().lower()
         rows = [r for r in rows if q in r["中文"].lower() or q in r["英文"].lower()]
 
-    # 按英文排序（A-Z）
-    rows.sort(key=lambda r: r["英文"].lower())
+        # ===== 排序 =====
+    col_sort1, col_sort2 = st.columns(2)
+
+    with col_sort1:
+        sort_field = st.selectbox(
+            "排序字段",
+            ["英文", "页码"],
+            index=0,
+            key="table_sort_field",
+        )
+
+    with col_sort2:
+        sort_order = st.radio(
+            "排序方向",
+            ["升序", "降序"],
+            horizontal=True,
+            key="table_sort_order",
+        )
+
+    reverse = (sort_order == "降序")
+
+    if sort_field == "英文":
+        rows.sort(key=lambda r: r["英文"].lower(), reverse=reverse)
+    elif sort_field == "页码":
+        # 页码可能是 int 或 None，用 0 兜底
+        rows.sort(key=lambda r: (r.get("页码") is None, r.get("页码") or 0), reverse=reverse)
 
     st.caption(f"共 {len(rows)} 条")
 
