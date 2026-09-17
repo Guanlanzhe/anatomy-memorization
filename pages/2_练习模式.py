@@ -330,16 +330,18 @@ else:
 
     st.markdown(f"### {q['prompt']}")
 
-    answer = st.text_input(
-        "你的答案",
-        key=f"answer_{i}",
-        disabled=st.session_state.answered,
-        placeholder="输入答案后按回车或点击提交",
-    )
-
-    col1, col2 = st.columns([1, 5])
-    with col1:
-        submit = st.button("提交", type="primary", disabled=st.session_state.answered, key=f"submit_{i}")
+    with st.form(key=f"answer_form_{i}", clear_on_submit=False):
+        answer = st.text_input(
+            "你的答案",
+            key=f"answer_{i}",
+            disabled=st.session_state.answered,
+            placeholder="输入答案后按回车或点击提交",
+        )
+        submit = st.form_submit_button(
+            "提交",
+            type="primary",
+            disabled=st.session_state.answered,
+        )
 
     if submit and answer:
         st.session_state.answered = True
