@@ -126,42 +126,53 @@ def review_card(card_id: str, rating: str = "good", correct: bool = True) -> dic
 
 
 def get_stats() -> dict:
-    """整体统计（主页用）。"""
+    """主页概览统计。"""
+    from src.supabase_client import get_user_threshold
+
     user_id = get_current_user_id()
     if not user_id:
-        return {"total": 0, "due": 0, "learning": 0, "review": 0, "new": 0}
+        return {
+            "total": 0, "need_review": 0, "mastered": 0,
+            "not_done": 0, "total_attempts": 0, "overall_rate": 0.0,
+        }
+
+    threshold = get_user_threshold()
 
     sb = get_supabase()
     res = sb.table("learning_state").select("*").eq("user_id", user_id).execute()
 
-    now = datetime.now(timezone.utc)
     total = len(res.data)
-    due = 0
-    learning = 0
-    review = 0
-    new = 0
+    need_review = 0
+    mastered = 0
+    not_done = 0
+    total_attempts = 0
+    total_correct = 0
 
     for row in res.data:
-        s = row.get("state", 0)
-        if s == 0:
-            new += 1
-        elif s in (1, 3):
-            learning += 1
-        elif s == 2:
-            review += 1
+        attempts = row.get("total_attempts", 0)
+        correct = row.get("total_correct", 0)
 
-        due_str = row.get("due")
-        if due_str:
-            try:
-                due_dt = datetime.fromisoformat(due_str)
-                if due_dt.tzinfo is None:
-                    due_dt = due_dt.replace(tzinfo=timezone.utc)
-                if due_dt <= now:
-                    due += 1
-            except Exception:
-                pass
+        if attempts == 0:
+            not_done += 1
+        else:
+            if correct / attempts < threshold:
+                need_review += 1
+            else:
+                mastered += 1
 
-    return {"total": total, "due": due, "learning": learning, "review": review, "new": new}
+        total_attempts += attempts
+        total_correct += correct
+
+    overall_rate = (total_correct / total_attempts) if total_attempts > 0 else 0.0
+
+    return {
+        "total": total,
+        "need_review": need_review,
+        "mastered": mastered,
+        "not_done": not_done,
+        "total_attempts": total_attempts,
+        "overall_rate": overall_rate,
+    }
 
 
 def get_card_stats() -> dict:
