@@ -92,4 +92,4 @@ for mode, m in stats["by_mode"].items():
 
 st.divider()
 
-st.caption("「需复习」= 做过的题里，累计正确率 < 50%。去「复习模式」专门练这些题。")
+st.caption(f"「需复习」= 做过的题里，累计正确率 < {new_threshold_pct}%。去「复习模式」专门练这些题。")
