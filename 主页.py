@@ -145,7 +145,7 @@ with col1:
                 padding: 22px; border-radius: 14px; color: white; margin-bottom: 12px;'>
         <h3 style='margin: 0 0 6px 0; color: white;'>🔁 复习模式</h3>
         <p style='margin: 0; opacity: 0.9; font-size: 13px; line-height: 1.5;'>
-            收录正确率 &lt; 50% 的卡片，集中突破弱项。
+            集中突破弱项卡片。
         </p>
     </div>
     """, unsafe_allow_html=True)
