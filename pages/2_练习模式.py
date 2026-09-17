@@ -1,4 +1,5 @@
 import sys
+import random
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
@@ -67,7 +68,10 @@ if not st.session_state.started:
                 if st.button("清空"):
                     st.session_state["_select_all_terms"] = False
 
-            default_ids = [t["id"] for t in terms[:20]]
+            # 默认全选
+            default_ids = [t["id"] for t in terms]
+            
+            # 手动全选/清空
             if st.session_state.get("_select_all_terms") is True:
                 default_ids = [t["id"] for t in terms]
             elif st.session_state.get("_select_all_terms") is False:
@@ -151,17 +155,24 @@ else:
         st.session_state.answered = True
         correct = answer.strip().lower() in [e.lower() for e in q["expected"]]
         st.session_state.last_correct = correct
-
+    
         if correct:
             st.session_state.correct_count += 1
             st.success("✓ 正确")
         else:
             st.error(f"✗ 错误，参考答案：{q['display']}")
-
+    
         card_id = q["id"]
         get_or_create_card(card_id)
         review_card(card_id, rating="good" if correct else "again", correct=correct)
-
+    
+        # 答对 → 直接跳到下一题
+        if correct:
+            st.session_state.current += 1
+            st.session_state.answered = False
+            st.rerun()
+    
+    # 答错 → 显示"下一题"按钮
     if st.session_state.answered:
         st.divider()
         if st.button("下一题 →", type="primary"):
