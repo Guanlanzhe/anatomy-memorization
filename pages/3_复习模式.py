@@ -222,18 +222,19 @@ else:
 
     st.markdown(f"### {q['prompt']}")
 
-    answer = st.text_input(
-        "你的答案",
-        key=f"review_answer_{i}",
-        disabled=st.session_state.review_answered,
-    )
+    with st.form(key=f"review_form_{i}", clear_on_submit=False):
+        answer = st.text_input(
+            "你的答案",
+            key=f"review_answer_{i}",
+            disabled=st.session_state.review_answered,
+        )
+        submit = st.form_submit_button(
+            "提交",
+            type="primary",
+            disabled=st.session_state.review_answered,
+        )
 
-    if st.button(
-        "提交",
-        type="primary",
-        disabled=st.session_state.review_answered,
-        key=f"review_submit_{i}",
-    ) and answer:
+    if submit and answer:
         st.session_state.review_answered = True
         correct = answer.strip().lower() in [e.lower() for e in q["expected"]]
     
