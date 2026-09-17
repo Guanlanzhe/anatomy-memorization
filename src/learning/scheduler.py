@@ -6,7 +6,7 @@ FSRS 调度 + Supabase 持久化。
 from datetime import datetime, timezone
 from fsrs import Scheduler, Card, Rating, State
 
-from src.supabase_client import get_supabase, get_current_user_id
+from src.supabase_client import get_supabase, get_current_user_id, get_user_threshold
 
 scheduler = Scheduler()
 
@@ -176,6 +176,8 @@ def get_card_stats() -> dict:
             "by_mode": {m: {"attempts": 0, "correct": 0, "rate": 0.0} for m in ALL_MODES},
         }
 
+    threshold = get_user_threshold()
+
     sb = get_supabase()
     res = sb.table("learning_state").select("*").eq("user_id", user_id).execute()
 
@@ -196,7 +198,7 @@ def get_card_stats() -> dict:
             not_done += 1
         else:
             rate = correct / attempts
-            if rate < 0.5:
+            if rate < threshold:
                 need_review += 1
             else:
                 mastered += 1
@@ -230,10 +232,13 @@ def get_card_stats() -> dict:
 
 
 def get_need_review_cards() -> list:
-    """返回所有需要复习的卡片 ID 列表。"""
+    from src.supabase_client import get_user_threshold
+
     user_id = get_current_user_id()
     if not user_id:
         return []
+
+    threshold = get_user_threshold()   # ← 读用户设置
 
     sb = get_supabase()
     res = sb.table("learning_state").select("card_id, total_attempts, total_correct").eq("user_id", user_id).execute()
@@ -244,6 +249,6 @@ def get_need_review_cards() -> list:
         correct = row.get("total_correct", 0)
         if attempts == 0:
             continue
-        if correct / attempts < 0.5:
+        if correct / attempts < threshold:   # ← 用用户的阈值
             result.append(row["card_id"])
     return result
