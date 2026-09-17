@@ -454,6 +454,14 @@
     "morphemes": []
   },
   {
+    "id": "sesamoid_bone",
+    "english": "sesamoid bone",
+    "chinese": "籽骨",
+    "chapter": "运动系统",
+    "page": 6,
+    "morphemes": []
+  },
+  {
     "id": "fovea",
     "english": "fovea",
     "chinese": "凹",
@@ -1301,6 +1309,14 @@
     "morphemes": []
   },
   {
+    "id": "styloid_process",
+    "english": "styloid process",
+    "chinese": "茎突",
+    "chapter": "运动系统",
+    "page": 17,
+    "morphemes": []
+  },
+  {
     "id": "carotid_canal",
     "english": "carotid canal",
     "chinese": "颈动脉管",
@@ -1308,6 +1324,16 @@
     "page": 17,
     "morphemes": [
       "ot"
+    ]
+  },
+  {
+    "id": "superior_orbital_fissure",
+    "english": "superior orbital fissure",
+    "chinese": "眶上裂",
+    "chapter": "运动系统",
+    "page": 17,
+    "morphemes": [
+      "super"
     ]
   },
   {
@@ -1738,16 +1764,6 @@
     "morphemes": []
   },
   {
-    "id": "superior_orbital_fissure_17",
-    "english": "superior orbital fissure 17",
-    "chinese": "眶上裂",
-    "chapter": "运动系统",
-    "page": 23,
-    "morphemes": [
-      "super"
-    ]
-  },
-  {
     "id": "inferior_orbital_fissure",
     "english": "inferior orbital fissure",
     "chinese": "眶下裂",
@@ -1811,6 +1827,22 @@
     ]
   },
   {
+    "id": "sphenoidal_sinus",
+    "english": "sphenoidal sinus",
+    "chinese": "蝶窦",
+    "chapter": "运动系统",
+    "page": 25,
+    "morphemes": []
+  },
+  {
+    "id": "frontal_sinus",
+    "english": "frontal sinus",
+    "chinese": "额窦",
+    "chapter": "运动系统",
+    "page": 25,
+    "morphemes": []
+  },
+  {
     "id": "bony_oral_cavity",
     "english": "bony oral cavity",
     "chinese": "骨性口腔",
@@ -1849,9 +1881,25 @@
     ]
   },
   {
+    "id": "ethmoidal_sinus",
+    "english": "ethmoidal sinus",
+    "chinese": "筛窦",
+    "chapter": "运动系统",
+    "page": 25,
+    "morphemes": []
+  },
+  {
     "id": "ethmoidal_cellule",
     "english": "ethmoidal cellule",
     "chinese": "筛小房",
+    "chapter": "运动系统",
+    "page": 25,
+    "morphemes": []
+  },
+  {
+    "id": "maxillary_sinus",
+    "english": "maxillary sinus",
+    "chinese": "上颌窦",
     "chapter": "运动系统",
     "page": 25,
     "morphemes": []
@@ -2099,12 +2147,16 @@
     ]
   },
   {
-    "id": "styloid_process_17",
-    "english": "styloid process 17",
-    "chinese": "茎突",
+    "id": "medial_epicondyle",
+    "english": "medial epicondyle",
+    "chinese": "内上髁",
     "chapter": "运动系统",
     "page": 28,
-    "morphemes": []
+    "morphemes": [
+      "medi",
+      "epi",
+      "condyl"
+    ]
   },
   {
     "id": "radius",
@@ -2171,6 +2223,18 @@
     "morphemes": []
   },
   {
+    "id": "lateral_epicondyle",
+    "english": "lateral epicondyle",
+    "chinese": "外上髁",
+    "chapter": "运动系统",
+    "page": 28,
+    "morphemes": [
+      "later",
+      "epi",
+      "condyl"
+    ]
+  },
+  {
     "id": "pisiform_bone",
     "english": "pisiform bone",
     "chinese": "豌豆骨",
@@ -2210,6 +2274,14 @@
     "chinese": "月骨",
     "chapter": "运动系统",
     "page": 28,
+    "morphemes": []
+  },
+  {
+    "id": "arcuate_line",
+    "english": "arcuate line",
+    "chinese": "弓状线",
+    "chapter": "运动系统",
+    "page": 29,
     "morphemes": []
   },
   {
@@ -2594,18 +2666,6 @@
     ]
   },
   {
-    "id": "medial_epicondyle_28",
-    "english": "medial epicondyle 28",
-    "chinese": "内上髁",
-    "chapter": "运动系统",
-    "page": 31,
-    "morphemes": [
-      "medi",
-      "epi",
-      "condyl"
-    ]
-  },
-  {
     "id": "adductor_tubercle",
     "english": "adductor tubercle",
     "chinese": "收肌结节",
@@ -2650,18 +2710,6 @@
     "page": 31,
     "morphemes": [
       "later"
-    ]
-  },
-  {
-    "id": "lateral_epicondyle_28",
-    "english": "lateral epicondyle 28",
-    "chinese": "外上髁",
-    "chapter": "运动系统",
-    "page": 31,
-    "morphemes": [
-      "later",
-      "epi",
-      "condyl"
     ]
   },
   {
@@ -2903,6 +2951,14 @@
     "morphemes": []
   },
   {
+    "id": "synovial_bursa",
+    "english": "synovial bursa",
+    "chinese": "滑膜囊",
+    "chapter": "运动系统",
+    "page": 36,
+    "morphemes": []
+  },
+  {
     "id": "circumduction",
     "english": "circumduction",
     "chinese": "环转",
@@ -3080,6 +3136,16 @@
     ]
   },
   {
+    "id": "thoracic_cage",
+    "english": "thoracic cage",
+    "chinese": "胸廓",
+    "chapter": "运动系统",
+    "page": 37,
+    "morphemes": [
+      "thorac"
+    ]
+  },
+  {
     "id": "intervertebral_disc",
     "english": "intervertebral disc",
     "chinese": "椎间盘",
@@ -3242,16 +3308,6 @@
     "morphemes": [
       "cost",
       "vertebr"
-    ]
-  },
-  {
-    "id": "thoracic_cage_37",
-    "english": "thoracic cage 37",
-    "chinese": "胸廓",
-    "chapter": "运动系统",
-    "page": 41,
-    "morphemes": [
-      "thorac"
     ]
   },
   {
@@ -4146,14 +4202,6 @@
     "morphemes": []
   },
   {
-    "id": "synovial_bursa_36",
-    "english": "synovial bursa 36",
-    "chinese": "滑膜囊",
-    "chapter": "运动系统",
-    "page": 56,
-    "morphemes": []
-  },
-  {
     "id": "synovial_sheath_of_tendon",
     "english": "synovial sheath of tendon",
     "chinese": "腱滑膜鞘",
@@ -4217,14 +4265,6 @@
     "id": "muscle_of_head",
     "english": "muscle of head",
     "chinese": "头肌",
-    "chapter": "运动系统",
-    "page": 57,
-    "morphemes": []
-  },
-  {
-    "id": "sesamoid_bone_6",
-    "english": "sesamoid bone 6",
-    "chinese": "籽骨",
     "chapter": "运动系统",
     "page": 57,
     "morphemes": []
@@ -4929,14 +4969,6 @@
       "rect",
       "abdomin"
     ]
-  },
-  {
-    "id": "arcuate_line_29",
-    "english": "arcuate line 29",
-    "chinese": "弓状线",
-    "chapter": "运动系统",
-    "page": 69,
-    "morphemes": []
   },
   {
     "id": "tendinous_intersection",
@@ -5696,6 +5728,24 @@
     "page": 87,
     "morphemes": [
       "logy"
+    ]
+  },
+  {
+    "id": "hilum_of_lung",
+    "english": "hilum of lung",
+    "chinese": "肺门",
+    "chapter": "内脏学总论",
+    "page": 88,
+    "morphemes": []
+  },
+  {
+    "id": "porta_hepatis",
+    "english": "porta hepatis",
+    "chinese": "肝门",
+    "chapter": "内脏学总论",
+    "page": 88,
+    "morphemes": [
+      "hepat"
     ]
   },
   {
@@ -7168,16 +7218,6 @@
     "morphemes": []
   },
   {
-    "id": "porta_hepatis_88",
-    "english": "porta hepatis 88",
-    "chinese": "肝门",
-    "chapter": "消化系统",
-    "page": 109,
-    "morphemes": [
-      "hepat"
-    ]
-  },
-  {
     "id": "right_lobe_of_liver",
     "english": "right lobe of liver",
     "chinese": "肝右叶",
@@ -7211,6 +7251,14 @@
     "id": "left_lobe_of_liver",
     "english": "left lobe of liver",
     "chinese": "肝左叶",
+    "chapter": "消化系统",
+    "page": 109,
+    "morphemes": []
+  },
+  {
+    "id": "diaphragmatic_surface",
+    "english": "diaphragmatic surface",
+    "chinese": "膈面",
     "chapter": "消化系统",
     "page": 109,
     "morphemes": []
@@ -7648,33 +7696,9 @@
     ]
   },
   {
-    "id": "sphenoidal_sinus_25",
-    "english": "sphenoidal sinus 25",
-    "chinese": "蝶窦",
-    "chapter": "呼吸系统",
-    "page": 118,
-    "morphemes": []
-  },
-  {
     "id": "sphenoethmoidal_recess",
     "english": "sphenoethmoidal recess",
     "chinese": "蝶筛隐窝",
-    "chapter": "呼吸系统",
-    "page": 118,
-    "morphemes": []
-  },
-  {
-    "id": "frontal_sinus_25",
-    "english": "frontal sinus 25",
-    "chinese": "额窦",
-    "chapter": "呼吸系统",
-    "page": 118,
-    "morphemes": []
-  },
-  {
-    "id": "ethmoidal_sinus_25",
-    "english": "ethmoidal sinus 25",
-    "chinese": "筛窦",
     "chapter": "呼吸系统",
     "page": 118,
     "morphemes": []
@@ -7691,14 +7715,6 @@
     "id": "ethmoidal_bulla",
     "english": "ethmoidal bulla",
     "chinese": "筛泡",
-    "chapter": "呼吸系统",
-    "page": 118,
-    "morphemes": []
-  },
-  {
-    "id": "maxillary_sinus_25",
-    "english": "maxillary sinus 25",
-    "chinese": "上颌窦",
     "chapter": "呼吸系统",
     "page": 118,
     "morphemes": []
@@ -8285,22 +8301,6 @@
     "morphemes": []
   },
   {
-    "id": "hilum_of_lung_88",
-    "english": "hilum of lung 88",
-    "chinese": "肺门",
-    "chapter": "呼吸系统",
-    "page": 127,
-    "morphemes": []
-  },
-  {
-    "id": "diaphragmatic_surface_109",
-    "english": "diaphragmatic surface 109",
-    "chinese": "膈面",
-    "chapter": "呼吸系统",
-    "page": 127,
-    "morphemes": []
-  },
-  {
     "id": "costal_surface",
     "english": "costal surface",
     "chinese": "肋面",
@@ -8716,6 +8716,17 @@
     ]
   },
   {
+    "id": "suprarenal_gland",
+    "english": "suprarenal gland",
+    "chinese": "肾上腺",
+    "chapter": "泌尿系统",
+    "page": 137,
+    "morphemes": [
+      "supra",
+      "ren"
+    ]
+  },
+  {
     "id": "muscular_tunica",
     "english": "muscular tunica",
     "chinese": "肌织膜",
@@ -8840,6 +8851,16 @@
     "chinese": "脂肪囊",
     "chapter": "泌尿系统",
     "page": 139,
+    "morphemes": [
+      "ren"
+    ]
+  },
+  {
+    "id": "renal_artery",
+    "english": "renal artery",
+    "chinese": "肾动脉",
+    "chapter": "泌尿系统",
+    "page": 140,
     "morphemes": [
       "ren"
     ]
@@ -8972,6 +8993,17 @@
     ]
   },
   {
+    "id": "internal_orifice_of_urethra",
+    "english": "internal orifice of urethra",
+    "chinese": "尿道内口",
+    "chapter": "泌尿系统",
+    "page": 142,
+    "morphemes": [
+      "intern",
+      "urethr"
+    ]
+  },
+  {
     "id": "urinary_bladder",
     "english": "urinary bladder",
     "chinese": "膀胱",
@@ -9069,13 +9101,13 @@
     ]
   },
   {
-    "id": "internal_orifice_of_urethra_142",
-    "english": "internal orifice of urethra 142",
-    "chinese": "尿道内口",
+    "id": "external_orifice_of_urethra",
+    "english": "external orifice of urethra",
+    "chinese": "尿道外口",
     "chapter": "泌尿系统",
     "page": 143,
     "morphemes": [
-      "intern",
+      "extern",
       "urethr"
     ]
   },
@@ -9146,6 +9178,16 @@
     "chapter": "生殖系统",
     "page": 146,
     "morphemes": []
+  },
+  {
+    "id": "testis",
+    "english": "testis",
+    "chinese": "睾丸",
+    "chapter": "生殖系统",
+    "page": 146,
+    "morphemes": [
+      "test"
+    ]
   },
   {
     "id": "efferent_ductule_of_testis",
@@ -9381,17 +9423,6 @@
     ]
   },
   {
-    "id": "external_orifice_of_urethra_143",
-    "english": "external orifice of urethra 143",
-    "chinese": "尿道外口",
-    "chapter": "生殖系统",
-    "page": 149,
-    "morphemes": [
-      "extern",
-      "urethr"
-    ]
-  },
-  {
     "id": "vaginal_cavity",
     "english": "vaginal cavity",
     "chinese": "鞘膜腔",
@@ -9568,6 +9599,16 @@
     "page": 151,
     "morphemes": [
       "urethr"
+    ]
+  },
+  {
+    "id": "ovary",
+    "english": "ovary",
+    "chinese": "卵巢",
+    "chapter": "生殖系统",
+    "page": 151,
+    "morphemes": [
+      "ovar"
     ]
   },
   {
@@ -10941,37 +10982,6 @@
     ]
   },
   {
-    "id": "testis_146",
-    "english": "testis 146",
-    "chinese": "睾丸",
-    "chapter": "内分泌系统",
-    "page": 173,
-    "morphemes": [
-      "test"
-    ]
-  },
-  {
-    "id": "ovary_151",
-    "english": "ovary 151",
-    "chinese": "卵巢",
-    "chapter": "内分泌系统",
-    "page": 173,
-    "morphemes": [
-      "ovar"
-    ]
-  },
-  {
-    "id": "suprarenal_gland_137",
-    "english": "suprarenal gland 137",
-    "chinese": "肾上腺",
-    "chapter": "内分泌系统",
-    "page": 173,
-    "morphemes": [
-      "supra",
-      "ren"
-    ]
-  },
-  {
     "id": "suprarenal_hilum",
     "english": "suprarenal hilum",
     "chinese": "肾上腺门",
@@ -10981,6 +10991,14 @@
       "supra",
       "ren"
     ]
+  },
+  {
+    "id": "thymus",
+    "english": "thymus",
+    "chinese": "胸腺",
+    "chapter": "内分泌系统",
+    "page": 173,
+    "morphemes": []
   },
   {
     "id": "pancreatic_islet",
@@ -11341,6 +11359,17 @@
     ]
   },
   {
+    "id": "left_atrioventricular_orifice",
+    "english": "left atrioventricular orifice",
+    "chinese": "左房室口",
+    "chapter": "脉管系统",
+    "page": 182,
+    "morphemes": [
+      "atri",
+      "ventricul"
+    ]
+  },
+  {
     "id": "left_auricle",
     "english": "left auricle",
     "chinese": "左心耳",
@@ -11491,17 +11520,6 @@
     "id": "left_atrioventricular_valve",
     "english": "left atrioventricular valve",
     "chinese": "左房室瓣",
-    "chapter": "脉管系统",
-    "page": 183,
-    "morphemes": [
-      "atri",
-      "ventricul"
-    ]
-  },
-  {
-    "id": "left_atrioventricular_orifice_182",
-    "english": "left atrioventricular orifice 182",
-    "chinese": "左房室口",
     "chapter": "脉管系统",
     "page": 183,
     "morphemes": [
@@ -12294,16 +12312,6 @@
     "page": 200,
     "morphemes": [
       "ovar"
-    ]
-  },
-  {
-    "id": "renal_artery_140",
-    "english": "renal artery 140",
-    "chinese": "肾动脉",
-    "chapter": "脉管系统",
-    "page": 200,
-    "morphemes": [
-      "ren"
     ]
   },
   {
@@ -13175,14 +13183,6 @@
     ]
   },
   {
-    "id": "thymus_173",
-    "english": "thymus 173",
-    "chinese": "胸腺",
-    "chapter": "脉管系统",
-    "page": 224,
-    "morphemes": []
-  },
-  {
     "id": "accessory_spleen",
     "english": "accessory spleen",
     "chinese": "副脾",
@@ -13344,6 +13344,17 @@
     "page": 226,
     "morphemes": [
       "sub"
+    ]
+  },
+  {
+    "id": "paratracheal_lymph_node",
+    "english": "paratracheal lymph node",
+    "chinese": "气管旁淋巴结",
+    "chapter": "脉管系统",
+    "page": 226,
+    "morphemes": [
+      "para",
+      "trache"
     ]
   },
   {
@@ -13575,17 +13586,6 @@
     "chapter": "脉管系统",
     "page": 229,
     "morphemes": []
-  },
-  {
-    "id": "paratracheal_lymph_node_226",
-    "english": "paratracheal lymph node 226",
-    "chinese": "气管旁淋巴结",
-    "chapter": "脉管系统",
-    "page": 229,
-    "morphemes": [
-      "para",
-      "trache"
-    ]
   },
   {
     "id": "tracheobronchial_lymph_node",
@@ -14629,6 +14629,32 @@
     ]
   },
   {
+    "id": "sensory_nerve",
+    "english": "sensory nerve",
+    "chinese": "感觉神经",
+    "chapter": "神经系统",
+    "page": 257,
+    "morphemes": []
+  },
+  {
+    "id": "visceral_nerve",
+    "english": "visceral nerve",
+    "chinese": "内脏神经",
+    "chapter": "神经系统",
+    "page": 257,
+    "morphemes": []
+  },
+  {
+    "id": "visceral_motor_nerve",
+    "english": "visceral motor nerve",
+    "chinese": "内脏运动神经",
+    "chapter": "神经系统",
+    "page": 257,
+    "morphemes": [
+      "ot"
+    ]
+  },
+  {
     "id": "nissl_body",
     "english": "Nissl body",
     "chinese": "尼氏体",
@@ -14637,9 +14663,27 @@
     "morphemes": []
   },
   {
+    "id": "somatic_nerve",
+    "english": "somatic nerve",
+    "chinese": "躯体神经",
+    "chapter": "神经系统",
+    "page": 257,
+    "morphemes": []
+  },
+  {
     "id": "neuroglia",
     "english": "neuroglia",
     "chinese": "神经胶质",
+    "chapter": "神经系统",
+    "page": 257,
+    "morphemes": [
+      "neur"
+    ]
+  },
+  {
+    "id": "neuroglial_cell",
+    "english": "neuroglial cell",
+    "chinese": "神经胶质细胞",
     "chapter": "神经系统",
     "page": 257,
     "morphemes": [
@@ -14693,6 +14737,26 @@
     "page": 257,
     "morphemes": [
       "ot"
+    ]
+  },
+  {
+    "id": "motor_nerve",
+    "english": "motor nerve",
+    "chinese": "运动神经",
+    "chapter": "神经系统",
+    "page": 257,
+    "morphemes": [
+      "ot"
+    ]
+  },
+  {
+    "id": "peripheral_nervous_system",
+    "english": "peripheral nervous system",
+    "chinese": "周围神经系统",
+    "chapter": "神经系统",
+    "page": 257,
+    "morphemes": [
+      "peri"
     ]
   },
   {
@@ -14765,6 +14829,14 @@
     "id": "nerve_fiber",
     "english": "nerve fiber",
     "chinese": "神经纤维",
+    "chapter": "神经系统",
+    "page": 259,
+    "morphemes": []
+  },
+  {
+    "id": "schwann_cell",
+    "english": "Schwann cell",
+    "chinese": "施万细胞",
     "chapter": "神经系统",
     "page": 259,
     "morphemes": []
@@ -14911,16 +14983,6 @@
     "morphemes": []
   },
   {
-    "id": "neuroglial_cell_257",
-    "english": "neuroglial cell 257",
-    "chinese": "神经胶质细胞",
-    "chapter": "神经系统",
-    "page": 260,
-    "morphemes": [
-      "neur"
-    ]
-  },
-  {
     "id": "synapse",
     "english": "synapse",
     "chinese": "突触",
@@ -15057,14 +15119,6 @@
     ]
   },
   {
-    "id": "schwann_cell_259",
-    "english": "Schwann cell 259",
-    "chinese": "施万细胞",
-    "chapter": "神经系统",
-    "page": 261,
-    "morphemes": []
-  },
-  {
     "id": "ependymocyte",
     "english": "ependymocyte",
     "chinese": "室管膜细胞",
@@ -15183,6 +15237,16 @@
     "morphemes": []
   },
   {
+    "id": "ganglion",
+    "english": "ganglion",
+    "chinese": "神经节",
+    "chapter": "神经系统",
+    "page": 262,
+    "morphemes": [
+      "gangli"
+    ]
+  },
+  {
     "id": "endoneurium",
     "english": "endoneurium",
     "chinese": "神经内膜",
@@ -15240,6 +15304,17 @@
     "morphemes": []
   },
   {
+    "id": "posterior_median_sulcus",
+    "english": "posterior median sulcus",
+    "chinese": "后正中沟",
+    "chapter": "神经系统",
+    "page": 263,
+    "morphemes": [
+      "poster",
+      "medi"
+    ]
+  },
+  {
     "id": "spinal_cord",
     "english": "spinal cord",
     "chinese": "脊髓",
@@ -15268,6 +15343,17 @@
     ]
   },
   {
+    "id": "anterior_median_fissure",
+    "english": "anterior median fissure",
+    "chinese": "前正中裂",
+    "chapter": "神经系统",
+    "page": 263,
+    "morphemes": [
+      "anter",
+      "medi"
+    ]
+  },
+  {
     "id": "lumbosacral_enlargement",
     "english": "lumbosacral enlargement",
     "chinese": "腰骶膨大",
@@ -15287,6 +15373,17 @@
     "morphemes": []
   },
   {
+    "id": "posterolateral_sulcus",
+    "english": "posterolateral sulcus",
+    "chinese": "后外侧沟",
+    "chapter": "神经系统",
+    "page": 264,
+    "morphemes": [
+      "poster",
+      "later"
+    ]
+  },
+  {
     "id": "posterior_intermediate_sulcus",
     "english": "posterior intermediate sulcus",
     "chinese": "后中间沟",
@@ -15297,6 +15394,14 @@
       "inter",
       "medi"
     ]
+  },
+  {
+    "id": "cauda_equina",
+    "english": "cauda equina",
+    "chinese": "马尾",
+    "chapter": "神经系统",
+    "page": 264,
+    "morphemes": []
   },
   {
     "id": "anterolateral_sulcus",
@@ -15643,6 +15748,30 @@
     "morphemes": []
   },
   {
+    "id": "lateral_corticospinal_tract",
+    "english": "lateral corticospinal tract",
+    "chinese": "皮质脊髓侧束",
+    "chapter": "神经系统",
+    "page": 269,
+    "morphemes": [
+      "later",
+      "cortic",
+      "spin"
+    ]
+  },
+  {
+    "id": "anterior_corticospinal_tract",
+    "english": "anterior corticospinal tract",
+    "chinese": "皮质脊髓前束",
+    "chapter": "神经系统",
+    "page": 269,
+    "morphemes": [
+      "anter",
+      "cortic",
+      "spin"
+    ]
+  },
+  {
     "id": "anterolateral_corticospinal_tract",
     "english": "anterolateral corticospinal tract",
     "chinese": "皮质脊髓前外侧束",
@@ -15656,9 +15785,70 @@
     ]
   },
   {
+    "id": "corticospinal_tract",
+    "english": "corticospinal tract",
+    "chinese": "皮质脊髓束",
+    "chapter": "神经系统",
+    "page": 269,
+    "morphemes": [
+      "cortic",
+      "spin"
+    ]
+  },
+  {
+    "id": "tectospinal_tract",
+    "english": "tectospinal tract",
+    "chinese": "顶盖脊髓束",
+    "chapter": "神经系统",
+    "page": 270,
+    "morphemes": [
+      "spin"
+    ]
+  },
+  {
+    "id": "rubrospinal_tract",
+    "english": "rubrospinal tract",
+    "chinese": "红核脊髓束",
+    "chapter": "神经系统",
+    "page": 270,
+    "morphemes": [
+      "spin"
+    ]
+  },
+  {
     "id": "propriospinal_tract",
     "english": "propriospinal tract",
     "chinese": "脊髓固有束",
+    "chapter": "神经系统",
+    "page": 270,
+    "morphemes": [
+      "spin"
+    ]
+  },
+  {
+    "id": "medial_longitudinal_fasciculus",
+    "english": "medial longitudinal fasciculus",
+    "chinese": "内侧纵束",
+    "chapter": "神经系统",
+    "page": 270,
+    "morphemes": [
+      "medi"
+    ]
+  },
+  {
+    "id": "vestibulospinal_tract",
+    "english": "vestibulospinal tract",
+    "chinese": "前庭脊髓束",
+    "chapter": "神经系统",
+    "page": 270,
+    "morphemes": [
+      "spin"
+    ]
+  },
+  {
+    "id": "reticulospinal_tract",
+    "english": "reticulospinal tract",
+    "chinese": "网状脊髓束",
     "chapter": "神经系统",
     "page": 270,
     "morphemes": [
@@ -15792,17 +15982,6 @@
     ]
   },
   {
-    "id": "posterolateral_sulcus_264",
-    "english": "posterolateral sulcus 264",
-    "chinese": "后外侧沟",
-    "chapter": "神经系统",
-    "page": 274,
-    "morphemes": [
-      "poster",
-      "later"
-    ]
-  },
-  {
     "id": "basilar_sulcus",
     "english": "basilar sulcus",
     "chinese": "基底沟",
@@ -15837,6 +16016,14 @@
     "morphemes": []
   },
   {
+    "id": "basilar_part_of_pons",
+    "english": "basilar part of pons",
+    "chinese": "脑桥基底部",
+    "chapter": "神经系统",
+    "page": 274,
+    "morphemes": []
+  },
+  {
     "id": "pontocerebellar_trigone",
     "english": "pontocerebellar trigone",
     "chinese": "脑桥小脑三角",
@@ -15847,14 +16034,13 @@
     ]
   },
   {
-    "id": "anterior_median_fissure_263",
-    "english": "anterior median fissure 263",
-    "chinese": "前正中裂",
+    "id": "middle_cerebellar_peduncle",
+    "english": "middle cerebellar peduncle",
+    "chinese": "小脑中脚",
     "chapter": "神经系统",
     "page": 274,
     "morphemes": [
-      "anter",
-      "medi"
+      "cerebell"
     ]
   },
   {
@@ -15926,17 +16112,6 @@
     ]
   },
   {
-    "id": "posterior_median_sulcus_263",
-    "english": "posterior median sulcus 263",
-    "chinese": "后正中沟",
-    "chapter": "神经系统",
-    "page": 275,
-    "morphemes": [
-      "poster",
-      "medi"
-    ]
-  },
-  {
     "id": "brachium_conjunctivum",
     "english": "brachium conjunctivum",
     "chinese": "结合臂",
@@ -15997,6 +16172,17 @@
     "chapter": "神经系统",
     "page": 275,
     "morphemes": []
+  },
+  {
+    "id": "superior_colliculus",
+    "english": "superior colliculus",
+    "chinese": "上丘",
+    "chapter": "神经系统",
+    "page": 275,
+    "morphemes": [
+      "super",
+      "col"
+    ]
   },
   {
     "id": "brachium_of_superior_colliculus",
@@ -16063,6 +16249,28 @@
     "morphemes": [
       "infer",
       "col"
+    ]
+  },
+  {
+    "id": "superior_cerebellar_peduncle",
+    "english": "superior cerebellar peduncle",
+    "chinese": "小脑上脚",
+    "chapter": "神经系统",
+    "page": 275,
+    "morphemes": [
+      "super",
+      "cerebell"
+    ]
+  },
+  {
+    "id": "inferior_cerebellar_peduncle",
+    "english": "inferior cerebellar peduncle",
+    "chinese": "小脑下脚",
+    "chapter": "神经系统",
+    "page": 275,
+    "morphemes": [
+      "infer",
+      "cerebell"
     ]
   },
   {
@@ -16370,16 +16578,6 @@
     ]
   },
   {
-    "id": "vestibulospinal_tract_270",
-    "english": "vestibulospinal tract 270",
-    "chinese": "前庭脊髓束",
-    "chapter": "神经系统",
-    "page": 282,
-    "morphemes": [
-      "spin"
-    ]
-  },
-  {
     "id": "vestibular_nucleus",
     "english": "vestibular nucleus",
     "chinese": "前庭神经核",
@@ -16395,6 +16593,16 @@
     "page": 282,
     "morphemes": [
       "spin"
+    ]
+  },
+  {
+    "id": "lateral_lemniscus",
+    "english": "lateral lemniscus",
+    "chinese": "外侧丘系",
+    "chapter": "神经系统",
+    "page": 282,
+    "morphemes": [
+      "later"
     ]
   },
   {
@@ -16504,16 +16712,6 @@
     "morphemes": []
   },
   {
-    "id": "tectospinal_tract_270",
-    "english": "tectospinal tract 270",
-    "chinese": "顶盖脊髓束",
-    "chapter": "神经系统",
-    "page": 287,
-    "morphemes": [
-      "spin"
-    ]
-  },
-  {
     "id": "nucleus_ceruleus",
     "english": "nucleus ceruleus",
     "chinese": "蓝斑核",
@@ -16551,17 +16749,6 @@
     ]
   },
   {
-    "id": "superior_colliculus_275",
-    "english": "superior colliculus 275",
-    "chinese": "上丘",
-    "chapter": "神经系统",
-    "page": 288,
-    "morphemes": [
-      "super",
-      "col"
-    ]
-  },
-  {
     "id": "ventral_tegmental_decussation",
     "english": "ventral tegmental decussation",
     "chinese": "被盖腹侧交叉",
@@ -16594,16 +16781,6 @@
     "chapter": "神经系统",
     "page": 289,
     "morphemes": []
-  },
-  {
-    "id": "rubrospinal_tract_270",
-    "english": "rubrospinal tract 270",
-    "chinese": "红核脊髓束",
-    "chapter": "神经系统",
-    "page": 289,
-    "morphemes": [
-      "spin"
-    ]
   },
   {
     "id": "medial_lemniscus",
@@ -16676,37 +16853,13 @@
     "morphemes": []
   },
   {
-    "id": "medial_longitudinal_fasciculus_270",
-    "english": "medial longitudinal fasciculus 270",
-    "chinese": "内侧纵束",
+    "id": "corticonuclear_tract",
+    "english": "corticonuclear tract",
+    "chinese": "皮质核束",
     "chapter": "神经系统",
     "page": 290,
     "morphemes": [
-      "medi"
-    ]
-  },
-  {
-    "id": "lateral_corticospinal_tract_269",
-    "english": "lateral corticospinal tract 269",
-    "chinese": "皮质脊髓侧束",
-    "chapter": "神经系统",
-    "page": 290,
-    "morphemes": [
-      "later",
-      "cortic",
-      "spin"
-    ]
-  },
-  {
-    "id": "anterior_corticospinal_tract_269",
-    "english": "anterior corticospinal tract 269",
-    "chinese": "皮质脊髓前束",
-    "chapter": "神经系统",
-    "page": 290,
-    "morphemes": [
-      "anter",
-      "cortic",
-      "spin"
+      "cortic"
     ]
   },
   {
@@ -16728,24 +16881,12 @@
     "morphemes": []
   },
   {
-    "id": "lateral_lemniscus_282",
-    "english": "lateral lemniscus 282",
-    "chinese": "外侧丘系",
+    "id": "pyramidal_tract",
+    "english": "pyramidal tract",
+    "chinese": "锥体束",
     "chapter": "神经系统",
     "page": 290,
-    "morphemes": [
-      "later"
-    ]
-  },
-  {
-    "id": "reticulospinal_tract_270",
-    "english": "reticulospinal tract 270",
-    "chinese": "网状脊髓束",
-    "chapter": "神经系统",
-    "page": 290,
-    "morphemes": [
-      "spin"
-    ]
+    "morphemes": []
   },
   {
     "id": "ascending_reticular_activating_system",
@@ -16775,14 +16916,6 @@
     "id": "tegmentum_of_pons",
     "english": "tegmentum of pons",
     "chinese": "脑桥被盖部",
-    "chapter": "神经系统",
-    "page": 293,
-    "morphemes": []
-  },
-  {
-    "id": "basilar_part_of_pons_274",
-    "english": "basilar part of pons 274",
-    "chinese": "脑桥基底部",
     "chapter": "神经系统",
     "page": 293,
     "morphemes": []
@@ -17012,6 +17145,14 @@
     ]
   },
   {
+    "id": "molecular_layer",
+    "english": "molecular layer",
+    "chinese": "分子层",
+    "chapter": "神经系统",
+    "page": 298,
+    "morphemes": []
+  },
+  {
     "id": "spinocerebellum",
     "english": "spinocerebellum",
     "chinese": "脊髓小脑",
@@ -17221,41 +17362,9 @@
     ]
   },
   {
-    "id": "superior_cerebellar_peduncle_275",
-    "english": "superior cerebellar peduncle 275",
-    "chinese": "小脑上脚",
-    "chapter": "神经系统",
-    "page": 300,
-    "morphemes": [
-      "super",
-      "cerebell"
-    ]
-  },
-  {
     "id": "cerebellar_medulla",
     "english": "cerebellar medulla",
     "chinese": "小脑髓质",
-    "chapter": "神经系统",
-    "page": 300,
-    "morphemes": [
-      "cerebell"
-    ]
-  },
-  {
-    "id": "inferior_cerebellar_peduncle_275",
-    "english": "inferior cerebellar peduncle 275",
-    "chinese": "小脑下脚",
-    "chapter": "神经系统",
-    "page": 300,
-    "morphemes": [
-      "infer",
-      "cerebell"
-    ]
-  },
-  {
-    "id": "middle_cerebellar_peduncle_274",
-    "english": "middle cerebellar peduncle 274",
-    "chinese": "小脑中脚",
     "chapter": "神经系统",
     "page": 300,
     "morphemes": [
@@ -17278,6 +17387,17 @@
     "page": 303,
     "morphemes": [
       "encephal"
+    ]
+  },
+  {
+    "id": "interventricular_foramen",
+    "english": "interventricular foramen",
+    "chinese": "室间孔",
+    "chapter": "神经系统",
+    "page": 303,
+    "morphemes": [
+      "inter",
+      "ventricul"
     ]
   },
   {
@@ -17696,6 +17816,14 @@
     ]
   },
   {
+    "id": "fornix",
+    "english": "fornix",
+    "chinese": "穹窿",
+    "chapter": "神经系统",
+    "page": 306,
+    "morphemes": []
+  },
+  {
     "id": "mamillotegmental_tract",
     "english": "mamillotegmental tract",
     "chinese": "乳头被盖束",
@@ -17746,6 +17874,16 @@
       "poster",
       "hypo",
       "thalam"
+    ]
+  },
+  {
+    "id": "lateral_ventricle",
+    "english": "lateral ventricle",
+    "chinese": "侧脑室",
+    "chapter": "神经系统",
+    "page": 307,
+    "morphemes": [
+      "later"
     ]
   },
   {
@@ -18390,38 +18528,9 @@
     ]
   },
   {
-    "id": "lateral_ventricle_307",
-    "english": "lateral ventricle 307",
-    "chinese": "侧脑室",
-    "chapter": "神经系统",
-    "page": 315,
-    "morphemes": [
-      "later"
-    ]
-  },
-  {
-    "id": "interventricular_foramen_303",
-    "english": "interventricular foramen 303",
-    "chinese": "室间孔",
-    "chapter": "神经系统",
-    "page": 315,
-    "morphemes": [
-      "inter",
-      "ventricul"
-    ]
-  },
-  {
     "id": "polymorphic_layer",
     "english": "polymorphic layer",
     "chinese": "多形细胞层",
-    "chapter": "神经系统",
-    "page": 316,
-    "morphemes": []
-  },
-  {
-    "id": "molecular_layer_298",
-    "english": "molecular layer 298",
-    "chinese": "分子层",
     "chapter": "神经系统",
     "page": 316,
     "morphemes": []
@@ -18501,14 +18610,6 @@
     "morphemes": [
       "anter"
     ]
-  },
-  {
-    "id": "fornix_306",
-    "english": "fornix 306",
-    "chinese": "穹窿",
-    "chapter": "神经系统",
-    "page": 318,
-    "morphemes": []
   },
   {
     "id": "fornical_commissure",
@@ -19083,16 +19184,6 @@
     "morphemes": []
   },
   {
-    "id": "peripheral_nervous_system_257",
-    "english": "peripheral nervous system 257",
-    "chinese": "周围神经系统",
-    "chapter": "神经系统",
-    "page": 330,
-    "morphemes": [
-      "peri"
-    ]
-  },
-  {
     "id": "laminin",
     "english": "laminin",
     "chinese": "层粘连蛋白",
@@ -19101,20 +19192,44 @@
     "morphemes": []
   },
   {
-    "id": "sensory_nerve_257",
-    "english": "sensory nerve 257",
-    "chinese": "感觉神经",
+    "id": "parasympathetic_nerve",
+    "english": "parasympathetic nerve",
+    "chinese": "副交感神经",
     "chapter": "神经系统",
     "page": 331,
-    "morphemes": []
+    "morphemes": [
+      "parasympath"
+    ]
   },
   {
-    "id": "visceral_nerve_257",
-    "english": "visceral nerve 257",
-    "chinese": "内脏神经",
+    "id": "spinal_nerves",
+    "english": "spinal nerves",
+    "chinese": "脊神经",
     "chapter": "神经系统",
     "page": 331,
-    "morphemes": []
+    "morphemes": [
+      "spin"
+    ]
+  },
+  {
+    "id": "sympathetic_nerve",
+    "english": "sympathetic nerve",
+    "chinese": "交感神经",
+    "chapter": "神经系统",
+    "page": 331,
+    "morphemes": [
+      "sympath"
+    ]
+  },
+  {
+    "id": "cranial_nerves",
+    "english": "cranial nerves",
+    "chinese": "脑神经",
+    "chapter": "神经系统",
+    "page": 331,
+    "morphemes": [
+      "crani"
+    ]
   },
   {
     "id": "retrograde_degeneration",
@@ -19124,24 +19239,6 @@
     "page": 331,
     "morphemes": [
       "retro"
-    ]
-  },
-  {
-    "id": "somatic_nerve_257",
-    "english": "somatic nerve 257",
-    "chinese": "躯体神经",
-    "chapter": "神经系统",
-    "page": 331,
-    "morphemes": []
-  },
-  {
-    "id": "ganglion_262",
-    "english": "ganglion 262",
-    "chinese": "神经节",
-    "chapter": "神经系统",
-    "page": 331,
-    "morphemes": [
-      "gangli"
     ]
   },
   {
@@ -19184,14 +19281,20 @@
     ]
   },
   {
-    "id": "motor_nerve_257",
-    "english": "motor nerve 257",
-    "chinese": "运动神经",
+    "id": "vegetative_nervous_system",
+    "english": "vegetative nervous system",
+    "chinese": "植物神经系统",
     "chapter": "神经系统",
     "page": 331,
-    "morphemes": [
-      "ot"
-    ]
+    "morphemes": []
+  },
+  {
+    "id": "autonomic_nervous_system",
+    "english": "autonomic nervous system",
+    "chinese": "自主神经系统",
+    "chapter": "神经系统",
+    "page": 331,
+    "morphemes": []
   },
   {
     "id": "sacral_nerves",
@@ -19215,16 +19318,6 @@
     ]
   },
   {
-    "id": "spinal_nerves_331",
-    "english": "spinal nerves 331",
-    "chinese": "脊神经",
-    "chapter": "神经系统",
-    "page": 332,
-    "morphemes": [
-      "spin"
-    ]
-  },
-  {
     "id": "spinal_ganglion",
     "english": "spinal ganglion",
     "chinese": "脊神经节",
@@ -19244,14 +19337,6 @@
     "morphemes": [
       "cervic"
     ]
-  },
-  {
-    "id": "cauda_equina_264",
-    "english": "cauda equina 264",
-    "chinese": "马尾",
-    "chapter": "神经系统",
-    "page": 332,
-    "morphemes": []
   },
   {
     "id": "anterior_root",
@@ -19303,6 +19388,27 @@
     "morphemes": []
   },
   {
+    "id": "brachial_plexus",
+    "english": "brachial plexus",
+    "chinese": "臂丛",
+    "chapter": "神经系统",
+    "page": 333,
+    "morphemes": [
+      "plex"
+    ]
+  },
+  {
+    "id": "sacral_plexus",
+    "english": "sacral plexus",
+    "chinese": "骶丛",
+    "chapter": "神经系统",
+    "page": 333,
+    "morphemes": [
+      "sacr",
+      "plex"
+    ]
+  },
+  {
     "id": "third_occipital_nerve",
     "english": "third occipital nerve",
     "chinese": "第3枕神经",
@@ -19337,6 +19443,17 @@
     "morphemes": []
   },
   {
+    "id": "cervical_plexus",
+    "english": "cervical plexus",
+    "chinese": "颈丛",
+    "chapter": "神经系统",
+    "page": 333,
+    "morphemes": [
+      "cervic",
+      "plex"
+    ]
+  },
+  {
     "id": "anterior_branch",
     "english": "anterior branch",
     "chinese": "前支",
@@ -19365,6 +19482,17 @@
     "morphemes": []
   },
   {
+    "id": "lumbar_plexus",
+    "english": "lumbar plexus",
+    "chinese": "腰丛",
+    "chapter": "神经系统",
+    "page": 333,
+    "morphemes": [
+      "lumb",
+      "plex"
+    ]
+  },
+  {
     "id": "greater_occipital_nerve",
     "english": "greater occipital nerve",
     "chinese": "枕大神经",
@@ -19380,17 +19508,6 @@
     "page": 333,
     "morphemes": [
       "sub"
-    ]
-  },
-  {
-    "id": "cervical_plexus_333",
-    "english": "cervical plexus 333",
-    "chinese": "颈丛",
-    "chapter": "神经系统",
-    "page": 334,
-    "morphemes": [
-      "cervic",
-      "plex"
     ]
   },
   {
@@ -19461,16 +19578,6 @@
     "chapter": "神经系统",
     "page": 335,
     "morphemes": []
-  },
-  {
-    "id": "brachial_plexus_333",
-    "english": "brachial plexus 333",
-    "chinese": "臂丛",
-    "chapter": "神经系统",
-    "page": 336,
-    "morphemes": [
-      "plex"
-    ]
   },
   {
     "id": "dorsal_scapular_nerve",
@@ -19675,17 +19782,6 @@
     ]
   },
   {
-    "id": "lumbar_plexus_333",
-    "english": "lumbar plexus 333",
-    "chinese": "腰丛",
-    "chapter": "神经系统",
-    "page": 342,
-    "morphemes": [
-      "lumb",
-      "plex"
-    ]
-  },
-  {
     "id": "obturator_nerve",
     "english": "obturator nerve",
     "chinese": "闭孔神经",
@@ -19731,17 +19827,6 @@
     "morphemes": []
   },
   {
-    "id": "sacral_plexus_333",
-    "english": "sacral plexus 333",
-    "chinese": "骶丛",
-    "chapter": "神经系统",
-    "page": 344,
-    "morphemes": [
-      "sacr",
-      "plex"
-    ]
-  },
-  {
     "id": "posterior_femoral_cutaneous_nerve",
     "english": "posterior femoral cutaneous nerve",
     "chinese": "股后皮神经",
@@ -19778,6 +19863,14 @@
     "chinese": "阴部神经",
     "chapter": "神经系统",
     "page": 344,
+    "morphemes": []
+  },
+  {
+    "id": "common_peroneal_nerve",
+    "english": "common peroneal nerve",
+    "chinese": "腓总神经",
+    "chapter": "神经系统",
+    "page": 345,
     "morphemes": []
   },
   {
@@ -19837,14 +19930,6 @@
     "morphemes": []
   },
   {
-    "id": "common_peroneal_nerve_345",
-    "english": "common peroneal nerve 345",
-    "chinese": "腓总神经",
-    "chapter": "神经系统",
-    "page": 346,
-    "morphemes": []
-  },
-  {
     "id": "coccygeal_plexus",
     "english": "coccygeal plexus",
     "chinese": "尾丛",
@@ -19853,16 +19938,6 @@
     "morphemes": [
       "coccyg",
       "plex"
-    ]
-  },
-  {
-    "id": "cranial_nerves_331",
-    "english": "cranial nerves 331",
-    "chinese": "脑神经",
-    "chapter": "神经系统",
-    "page": 348,
-    "morphemes": [
-      "crani"
     ]
   },
   {
@@ -20321,6 +20396,16 @@
     ]
   },
   {
+    "id": "pharyngeal_branch",
+    "english": "pharyngeal branch",
+    "chinese": "咽支",
+    "chapter": "神经系统",
+    "page": 359,
+    "morphemes": [
+      "pharyng"
+    ]
+  },
+  {
     "id": "auricular_branch",
     "english": "auricular branch",
     "chinese": "耳支",
@@ -20434,16 +20519,6 @@
     ]
   },
   {
-    "id": "pharyngeal_branch_359",
-    "english": "pharyngeal branch 359",
-    "chinese": "咽支",
-    "chapter": "神经系统",
-    "page": 361,
-    "morphemes": [
-      "pharyng"
-    ]
-  },
-  {
     "id": "bronchial_branch",
     "english": "bronchial branch",
     "chinese": "支气管支",
@@ -20527,32 +20602,6 @@
     ]
   },
   {
-    "id": "visceral_motor_nerve_257",
-    "english": "visceral motor nerve 257",
-    "chinese": "内脏运动神经",
-    "chapter": "神经系统",
-    "page": 363,
-    "morphemes": [
-      "ot"
-    ]
-  },
-  {
-    "id": "vegetative_nervous_system_331",
-    "english": "vegetative nervous system 331",
-    "chinese": "植物神经系统",
-    "chapter": "神经系统",
-    "page": 363,
-    "morphemes": []
-  },
-  {
-    "id": "autonomic_nervous_system_331",
-    "english": "autonomic nervous system 331",
-    "chinese": "自主神经系统",
-    "chapter": "神经系统",
-    "page": 363,
-    "morphemes": []
-  },
-  {
     "id": "sympathetic_trunk",
     "english": "sympathetic trunk",
     "chinese": "交感干",
@@ -20570,16 +20619,6 @@
     "page": 365,
     "morphemes": [
       "gangli",
-      "sympath"
-    ]
-  },
-  {
-    "id": "sympathetic_nerve_331",
-    "english": "sympathetic nerve 331",
-    "chinese": "交感神经",
-    "chapter": "神经系统",
-    "page": 365,
-    "morphemes": [
       "sympath"
     ]
   },
@@ -20849,16 +20888,6 @@
     ]
   },
   {
-    "id": "parasympathetic_nerve_331",
-    "english": "parasympathetic nerve 331",
-    "chinese": "副交感神经",
-    "chapter": "神经系统",
-    "page": 368,
-    "morphemes": [
-      "parasympath"
-    ]
-  },
-  {
     "id": "pelvic_splanchnic_nerve",
     "english": "pelvic splanchnic nerve",
     "chinese": "盆内脏神经",
@@ -21086,14 +21115,6 @@
     ]
   },
   {
-    "id": "pyramidal_tract_290",
-    "english": "pyramidal tract 290",
-    "chinese": "锥体束",
-    "chapter": "神经系统",
-    "page": 384,
-    "morphemes": []
-  },
-  {
     "id": "pyramidal_system",
     "english": "pyramidal system",
     "chinese": "锥体系",
@@ -21121,27 +21142,6 @@
     "morphemes": [
       "infra",
       "para"
-    ]
-  },
-  {
-    "id": "corticonuclear_tract_290",
-    "english": "corticonuclear tract 290",
-    "chinese": "皮质核束",
-    "chapter": "神经系统",
-    "page": 386,
-    "morphemes": [
-      "cortic"
-    ]
-  },
-  {
-    "id": "corticospinal_tract_269",
-    "english": "corticospinal tract 269",
-    "chinese": "皮质脊髓束",
-    "chapter": "神经系统",
-    "page": 386,
-    "morphemes": [
-      "cortic",
-      "spin"
     ]
   },
   {
