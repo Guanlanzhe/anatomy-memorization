@@ -57,3 +57,33 @@ def sign_out():
         sb.auth.sign_out()
     except Exception:
         pass
+
+def get_user_threshold() -> float:
+    """拿当前用户的复习阈值。没有记录就返回默认 0.5。"""
+    user_id = get_current_user_id()
+    if not user_id:
+        return 0.5
+
+    sb = get_supabase()
+    try:
+        res = sb.table("user_settings").select("review_threshold").eq("user_id", user_id).execute()
+        if res.data:
+            return float(res.data[0]["review_threshold"])
+    except Exception:
+        pass
+    return 0.5
+
+
+def set_user_threshold(value: float):
+    """设置当前用户的复习阈值。"""
+    user_id = get_current_user_id()
+    if not user_id:
+        return
+
+    sb = get_supabase()
+    # upsert: 存在则更新，不存在则插入
+    sb.table("user_settings").upsert({
+        "user_id": user_id,
+        "review_threshold": float(value),
+        "updated_at": "now()",
+    }).execute()
