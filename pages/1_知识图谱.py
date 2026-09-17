@@ -326,24 +326,30 @@ with tab_table:
     inner_query = st.text_input("在结果中搜索", "", key="table_inner_search")
 
     # 生成表格行
-    rows = []
+        # 内部数据：保留页码和状态用于排序/筛选，但不显示
+    internal = []
     for t in filtered_terms:
         en = t["english"].replace("_", " ")
         zh = t.get("chinese", "")
-        st_label = status_map[term_status[t["id"]]]
-        page = t.get("page")  # 注意：terms.json 里的字段叫 "page"，不是 "页码"
-        rows.append({
+
+        page = t.get("page")
+        try:
+            page = int(page) if page is not None else 0
+        except (ValueError, TypeError):
+            page = 0
+
+        internal.append({
             "中文": zh,
             "英文": en,
-            "页码": page if page is not None else "",
-            "状态": st_label,
+            "页码": page,
+            "状态": status_map[term_status[t["id"]]],
         })
 
     if inner_query.strip():
         q = inner_query.strip().lower()
-        rows = [r for r in rows if q in r["中文"].lower() or q in r["英文"].lower()]
+        internal = [r for r in internal if q in r["中文"].lower() or q in r["英文"].lower()]
 
-        # ===== 排序 =====
+    # ===== 排序 =====
     col_sort1, col_sort2 = st.columns(2)
 
     with col_sort1:
@@ -365,24 +371,25 @@ with tab_table:
     reverse = (sort_order == "降序")
 
     if sort_field == "英文":
-        rows.sort(key=lambda r: r["英文"].lower(), reverse=reverse)
+        internal.sort(key=lambda r: r["英文"].lower(), reverse=reverse)
     elif sort_field == "页码":
-        # 页码可能是 int 或 None，用 0 兜底
-        rows.sort(key=lambda r: (r.get("页码") is None, r.get("页码") or 0), reverse=reverse)
+        internal.sort(key=lambda r: r["页码"], reverse=reverse)
 
-    st.caption(f"共 {len(rows)} 条")
+    st.caption(f"共 {len(internal)} 条")
 
-    # 显示表格
+    # 显示时只保留中文、英文两列
+    display_rows = [{"中文": r["中文"], "英文": r["英文"]} for r in internal]
+
     st.dataframe(
-        rows,
+        display_rows,
         use_container_width=True,
         hide_index=True,
-        height=min(700, 40 + len(rows) * 35),
+        height=min(700, 40 + len(display_rows) * 35),
     )
 
-    # 下载
-    csv = "中文,英文,状态\n" + "\n".join(
-        f"{r['中文']},{r['英文']},{r['状态']}" for r in rows
+    # 下载也只包含中文、英文
+    csv = "中文,英文\n" + "\n".join(
+        f"{r['中文']},{r['英文']}" for r in internal
     )
     st.download_button(
         "⬇️ 下载 CSV",
