@@ -128,10 +128,10 @@ from src.learning.scheduler import get_stats
 stats = get_stats()
 
 col1, col2, col3, col4 = st.columns(4)
-col1.metric("总卡片", stats["total"])
-col2.metric("今日到期", stats["due"])
-col3.metric("学习中", stats["learning"])
-col4.metric("复习中", stats["review"])
+col1.metric("🔴 需复习", stats["need_review"])
+col2.metric("🟢 已掌握", stats["mastered"])
+col3.metric("⚪ 未做", stats["not_done"])
+col4.metric("总正确率", f"{stats['overall_rate']*100:.1f}%")
 
 
 # ============ 复习 + 统计 入口 ============
