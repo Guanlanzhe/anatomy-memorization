@@ -20,6 +20,33 @@ if not st.session_state.get("user_id"):
     st.info("💡 未登录。登录后可以看到自己的学习统计。")
     st.page_link("主页.py", label="← 去主页登录", icon="🏠")
 
+from src.supabase_client import get_user_threshold, set_user_threshold
+
+# ============ 复习阈值设置 ============
+st.subheader("⚙️ 复习阈值设置")
+
+current_threshold = get_user_threshold()
+
+new_threshold = st.slider(
+    "累计正确率低于该值的题目，会被归入「需复习」",
+    min_value=0.0,
+    max_value=1.0,
+    value=float(current_threshold),
+    step=0.05,
+    format="%.0f%%",
+)
+
+# 显示为百分比
+st.caption(f"当前阈值：**{new_threshold*100:.0f}%**（低于此值的题会进入复习模式）")
+
+if new_threshold != current_threshold:
+    if st.button("💾 保存设置", type="primary"):
+        set_user_threshold(new_threshold)
+        st.success(f"已保存：阈值设为 {new_threshold*100:.0f}%")
+        st.rerun()
+
+st.divider()
+
 stats = get_card_stats()
 
 MODE_LABELS = {
