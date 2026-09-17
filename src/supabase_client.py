@@ -1,5 +1,5 @@
 """
-Supabase 客户端 + 认证封装。
+Supabase 客户端 + 认证 + 用户设置。
 """
 
 import streamlit as st
@@ -34,13 +34,13 @@ def sign_up(email: str, password: str):
 def sign_in(identifier: str, password: str):
     """登录。identifier 可以是邮箱，也可以是纯用户名。"""
     sb = get_supabase()
-    
-    # 如果输入的不是标准邮箱格式，就拼接一个伪邮箱后缀
+
+    # 如果输入的不是标准邮箱格式，就拼接伪邮箱后缀
     if "@" not in identifier:
         email = f"{identifier}@anatomy.local"
     else:
         email = identifier
-        
+
     try:
         res = sb.auth.sign_in_with_password({"email": email, "password": password})
         if res.user:
@@ -52,11 +52,12 @@ def sign_in(identifier: str, password: str):
 
 def sign_out():
     """登出。"""
-    sb = get_supabase()
     try:
+        sb = get_supabase()
         sb.auth.sign_out()
     except Exception:
         pass
+
 
 def get_user_threshold() -> float:
     """拿当前用户的复习阈值。没有记录就返回默认 0.5。"""
@@ -81,9 +82,7 @@ def set_user_threshold(value: float):
         return
 
     sb = get_supabase()
-    # upsert: 存在则更新，不存在则插入
     sb.table("user_settings").upsert({
         "user_id": user_id,
         "review_threshold": float(value),
-        "updated_at": "now()",
     }).execute()
