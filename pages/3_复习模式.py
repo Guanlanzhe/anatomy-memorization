@@ -21,7 +21,9 @@ from src.learning.scheduler import (
 from src.learning.question import generate_questions_for_term, ALL_MODES
 
 st.title("🔁 复习模式")
-st.caption("这里收录「做过的题里，累计正确率 < 50%」的卡片。答对后会重新评估。")
+from src.supabase_client import get_user_threshold
+_thr = get_user_threshold()
+st.caption(f"这里收录「做过的题里，累计正确率 < {_thr*100:.0f}%」的卡片。答对后会重新评估。")
 
 if not st.session_state.get("user_id"):
     st.warning("⚠️ 你当前未登录，做题记录不会被保存。")
@@ -233,16 +235,23 @@ else:
     ) and answer:
         st.session_state.review_answered = True
         correct = answer.strip().lower() in [e.lower() for e in q["expected"]]
-
+    
         if correct:
             st.session_state.review_correct_count += 1
             st.success("✓ 正确")
         else:
             st.error(f"✗ 错误，参考答案：{q['display']}")
-
+    
         get_or_create_card(q["id"])
         review_card(q["id"], rating="good" if correct else "again", correct=correct)
-
+    
+        # 答对 → 立即跳下一题
+        if correct:
+            st.session_state.review_current += 1
+            st.session_state.review_answered = False
+            st.rerun()
+    
+    # 答错 → 显示"下一题"按钮，等用户手动确认
     if st.session_state.review_answered:
         st.divider()
         if st.button("下一题 →", type="primary", key=f"review_next_{i}"):
