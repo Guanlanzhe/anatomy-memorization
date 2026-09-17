@@ -23,7 +23,8 @@ from src.learning.question import generate_questions_for_term, ALL_MODES
 st.title("🔁 复习模式")
 from src.supabase_client import get_user_threshold
 _thr = get_user_threshold()
-st.caption(f"这里收录「做过的题里，累计正确率 < {_thr*100:.0f}%」的卡片。答对后会重新评估。")
+_threshold_pct = int(round(get_user_threshold() * 100))
+st.caption(f"这里收录「做过的题里，累计正确率 < {_threshold_pct}%」的卡片。答对后会重新评估。")
 
 if not st.session_state.get("user_id"):
     st.warning("⚠️ 你当前未登录，做题记录不会被保存。")
