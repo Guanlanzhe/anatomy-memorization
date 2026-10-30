@@ -145,39 +145,54 @@ with tab_graph:
 # Tab 2：表格
 # ============================================================
 with tab_table:
-    mode = st.radio(
-        "显示模式",
-        ["按章节", "按词根"],
-        horizontal=True,
-        label_visibility="collapsed",
-        key="table_filter_mode",
-    )
     
-    st.caption("显示模式")  # 补充标题，因为上面隐藏了
+    # 1. 显示模式
+    col1, col2 = st.columns([2, 8])
+    with col1:
+        st.markdown("<div style='padding-top: 10px;'>显示模式</div>", unsafe_allow_html=True)
+    with col2:
+        mode = st.radio(
+            "显示模式",
+            ["按章节", "按词根"],
+            horizontal=True,
+            label_visibility="collapsed",
+            key="table_filter_mode",
+        )
 
     terms_for_view = []
 
+    # 2. 选择章节 或 选择词根
     if mode == "按章节":
         chapters = get_chapters()
-        selected_chapters = st.multiselect(
-            "选择章节",
-            chapters,
-            default=st.session_state.get("table_chapters", chapters),
-            key="table_chapters_select"
-        )
-        st.session_state["table_chapters"] = selected_chapters
+        
+        col1, col2 = st.columns([2, 8])
+        with col1:
+            st.markdown("<div style='padding-top: 10px;'>选择章节</div>", unsafe_allow_html=True)
+        with col2:
+            selected_chapters = st.multiselect(
+                "选择章节",
+                chapters,
+                default=st.session_state.get("table_chapters", chapters),
+                label_visibility="collapsed",
+                key="table_chapters_select"
+            )
+            st.session_state["table_chapters"] = selected_chapters
 
         if not selected_chapters:
             st.info("请至少选择一个章节。")
             terms_for_view = []
         else:
-            terms_for_view = []
             for c in selected_chapters:
                 terms_for_view.extend(get_terms_by_chapter(c))
 
     else:
         morphemes = load_morphemes()
-        query = st.text_input("搜索词根", "", key="table_morph_query")
+        
+        col1, col2 = st.columns([2, 8])
+        with col1:
+            st.markdown("<div style='padding-top: 10px;'>搜索词根</div>", unsafe_allow_html=True)
+        with col2:
+            query = st.text_input("搜索词根", "", label_visibility="collapsed", key="table_morph_query")
 
         q = query.strip().lower()
         if q:
@@ -195,12 +210,18 @@ with tab_table:
             st.stop()
 
         options = sorted(filtered.keys())
-        morpheme_id = st.selectbox(
-            "选择词根",
-            options,
-            format_func=lambda x: f"{x} · {filtered[x].get('chinese', '')} · {filtered[x].get('meaning', '')}",
-            key="table_morph_select",
-        )
+        
+        col1, col2 = st.columns([2, 8])
+        with col1:
+            st.markdown("<div style='padding-top: 10px;'>选择词根</div>", unsafe_allow_html=True)
+        with col2:
+            morpheme_id = st.selectbox(
+                "选择词根",
+                options,
+                format_func=lambda x: f"{x} · {filtered[x].get('chinese', '')} · {filtered[x].get('meaning', '')}",
+                label_visibility="collapsed",
+                key="table_morph_select",
+            )
 
         all_terms = load_terms()
         terms_for_view = [t for t in all_terms if morpheme_id in t.get("morphemes", [])]
@@ -250,15 +271,18 @@ with tab_table:
         if t["id"] not in term_status:
             term_status[t["id"]] = "undone"
 
-    # ===== 整理后的布局：一行一个条目 =====
-    
-    # 1. 学习状态
-    status_filter = st.multiselect(
-        "筛选学习状态",
-        ["未做", "需复习", "已掌握"],
-        default=["未做", "需复习", "已掌握"],
-        key="table_status_filter",
-    )
+    # 3. 筛选学习状态
+    col1, col2 = st.columns([2, 8])
+    with col1:
+        st.markdown("<div style='padding-top: 10px;'>学习状态</div>", unsafe_allow_html=True)
+    with col2:
+        status_filter = st.multiselect(
+            "学习状态",
+            ["未做", "需复习", "已掌握"],
+            default=["未做", "需复习", "已掌握"],
+            label_visibility="collapsed",
+            key="table_status_filter",
+        )
 
     status_map = {
         "undone": "未做",
@@ -276,25 +300,35 @@ with tab_table:
 
     filtered_terms = [t for t in terms_for_view if term_status[t["id"]] in allowed]
 
-    # 2. 排序（放一行里）
-    col_sort1, col_sort2 = st.columns(2)
-    with col_sort1:
-        sort_field = st.selectbox(
-            "排序字段",
-            ["英文", "页码"],
-            index=0,
-            key="table_sort_field",
-        )
-    with col_sort2:
-        sort_order = st.radio(
-            "排序方向",
-            ["升序", "降序"],
-            horizontal=True,
-            key="table_sort_order",
-        )
+    # 4. 排序
+    col1, col2 = st.columns([2, 8])
+    with col1:
+        st.markdown("<div style='padding-top: 10px;'>排序</div>", unsafe_allow_html=True)
+    with col2:
+        col_sort1, col_sort2 = st.columns([1, 1])
+        with col_sort1:
+            sort_field = st.selectbox(
+                "字段",
+                ["英文", "页码"],
+                index=0,
+                label_visibility="collapsed",
+                key="table_sort_field",
+            )
+        with col_sort2:
+            sort_order = st.radio(
+                "方向",
+                ["升序", "降序"],
+                horizontal=True,
+                label_visibility="collapsed",
+                key="table_sort_order",
+            )
 
-    # 3. 搜索
-    inner_query = st.text_input("在结果中搜索", "", key="table_inner_search")
+    # 5. 搜索
+    col1, col2 = st.columns([2, 8])
+    with col1:
+        st.markdown("<div style='padding-top: 10px;'>在结果中搜索</div>", unsafe_allow_html=True)
+    with col2:
+        inner_query = st.text_input("搜索", "", label_visibility="collapsed", key="table_inner_search")
 
     # ===== 处理数据 =====
     internal = []
