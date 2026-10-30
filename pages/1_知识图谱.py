@@ -224,7 +224,6 @@ with tab_table:
 
         all_terms = load_terms()
         terms_for_view = [t for t in all_terms if morpheme_id in t.get("morphemes", [])]
-        st.caption(f"找到 {len(terms_for_view)} 个包含「{morpheme_id}」的术语")
 
     if not terms_for_view:
         st.info("没有可显示的术语。")
