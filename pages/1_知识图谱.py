@@ -28,64 +28,6 @@ tab_graph, tab_table = st.tabs(["🕸 图谱", "📋 表格"])
 
 
 # ============================================================
-# 通用：选章节或词根
-# ============================================================
-def pick_filter():
-    """返回 (mode, value, terms_list)。
-    mode: 'chapter' | 'morpheme'
-    value: 章节名 或 词根 id
-    terms_list: 过滤后的术语列表
-    """
-    mode = st.radio(
-        "模式",
-        ["按章节", "按词根"],
-        horizontal=True,
-        key="filter_mode",
-    )
-
-    terms_for_view = []
-
-    if mode == "按章节":
-        chapters = get_chapters()
-        chapter = st.selectbox("选择章节", chapters, key="chapter_select")
-        terms_for_view = get_terms_by_chapter(chapter)
-        return "chapter", chapter, terms_for_view
-
-    else:
-        morphemes = load_morphemes()
-
-        query = st.text_input("搜索词根（支持词根 / 英文 / 中文）", "", key="morph_query")
-
-        q = query.strip().lower()
-        if q:
-            filtered = {
-                k: v for k, v in morphemes.items()
-                if q in k.lower()
-                or q in v.get("meaning", "").lower()
-                or q in v.get("chinese", "")
-            }
-        else:
-            filtered = morphemes
-
-        if not filtered:
-            st.warning("没有匹配的词根")
-            return "morpheme", None, []
-
-        options = sorted(filtered.keys())
-        morpheme_id = st.selectbox(
-            "选择词根",
-            options,
-            format_func=lambda x: f"{x} · {filtered[x].get('chinese', '')} · {filtered[x].get('meaning', '')}",
-            key="morph_select",
-        )
-
-        all_terms = load_terms()
-        terms_for_view = [t for t in all_terms if morpheme_id in t.get("morphemes", [])]
-        st.caption(f"找到 {len(terms_for_view)} 个包含「{morpheme_id}」的术语")
-        return "morpheme", morpheme_id, terms_for_view
-
-
-# ============================================================
 # Tab 1：图谱
 # ============================================================
 with tab_graph:
@@ -212,7 +154,7 @@ with tab_table:
 
     terms_for_view = []
 
-        if mode == "按章节":
+    if mode == "按章节":
         chapters = get_chapters()
         
         # 全选/清空按钮
@@ -284,20 +226,16 @@ with tab_table:
     user_id = get_current_user_id()
     threshold = get_user_threshold()
 
-    # 从 Supabase 拿该用户所有做过题的状态
-    # 每个 term 的状态 = "该 term 下所有做过的卡片"的聚合
-    term_status = {}  # term_id -> "done_need_review" | "done_mastered" | "undone"
+    term_status = {} 
 
     if user_id:
         sb = get_supabase()
         try:
             res = sb.table("learning_state").select("card_id, total_attempts, total_correct").eq("user_id", user_id).execute()
-            # 按 term_id 聚合
             term_attempts = {}
             term_correct = {}
             for row in res.data:
                 cid = row["card_id"]
-                # card_id 形如 term_id:mode
                 parts = cid.split(":")
                 if len(parts) < 2:
                     continue
@@ -352,7 +290,6 @@ with tab_table:
     inner_query = st.text_input("在结果中搜索", "", key="table_inner_search")
 
     # 生成表格行
-        # 内部数据：保留页码和状态用于排序/筛选，但不显示
     internal = []
     for t in filtered_terms:
         en = t["english"].replace("_", " ")
