@@ -149,45 +149,35 @@ with tab_table:
         "显示模式",
         ["按章节", "按词根"],
         horizontal=True,
+        label_visibility="collapsed",
         key="table_filter_mode",
     )
+    
+    st.caption("显示模式")  # 补充标题，因为上面隐藏了
 
     terms_for_view = []
 
     if mode == "按章节":
         chapters = get_chapters()
-        
-        # 全选/清空按钮
-        col_c1, col_c2, _ = st.columns([1, 1, 4])
-        with col_c1:
-            if st.button("全选章节", key="table_ch_sel_all"):
-                st.session_state["table_chapters"] = chapters
-        with col_c2:
-            if st.button("清空章节", key="table_ch_clear_all"):
-                st.session_state["table_chapters"] = []
-
-        # 多选框
         selected_chapters = st.multiselect(
-            "选择章节（可多选）",
+            "选择章节",
             chapters,
             default=st.session_state.get("table_chapters", chapters),
             key="table_chapters_select"
         )
-        # 同步状态以便按钮生效
         st.session_state["table_chapters"] = selected_chapters
 
         if not selected_chapters:
             st.info("请至少选择一个章节。")
             terms_for_view = []
         else:
-            # 合并所有选中章节的术语
             terms_for_view = []
             for c in selected_chapters:
                 terms_for_view.extend(get_terms_by_chapter(c))
 
     else:
         morphemes = load_morphemes()
-        query = st.text_input("搜索词根（支持词根 / 英文 / 中文）", "", key="table_morph_query")
+        query = st.text_input("搜索词根", "", key="table_morph_query")
 
         q = query.strip().lower()
         if q:
@@ -256,12 +246,13 @@ with tab_table:
         except Exception as e:
             st.warning(f"读学习状态失败：{e}")
 
-    # 未登录时都算未做
     for t in terms_for_view:
         if t["id"] not in term_status:
             term_status[t["id"]] = "undone"
 
-    # 筛选控件
+    # ===== 整理后的布局：一行一个条目 =====
+    
+    # 1. 学习状态
     status_filter = st.multiselect(
         "筛选学习状态",
         ["未做", "需复习", "已掌握"],
@@ -283,13 +274,29 @@ with tab_table:
     if "已掌握" in status_filter:
         allowed.add("mastered")
 
-    # 过滤后的术语
     filtered_terms = [t for t in terms_for_view if term_status[t["id"]] in allowed]
 
-    # ===== 在结果中搜索 =====
+    # 2. 排序（放一行里）
+    col_sort1, col_sort2 = st.columns(2)
+    with col_sort1:
+        sort_field = st.selectbox(
+            "排序字段",
+            ["英文", "页码"],
+            index=0,
+            key="table_sort_field",
+        )
+    with col_sort2:
+        sort_order = st.radio(
+            "排序方向",
+            ["升序", "降序"],
+            horizontal=True,
+            key="table_sort_order",
+        )
+
+    # 3. 搜索
     inner_query = st.text_input("在结果中搜索", "", key="table_inner_search")
 
-    # 生成表格行
+    # ===== 处理数据 =====
     internal = []
     for t in filtered_terms:
         en = t["english"].replace("_", " ")
@@ -312,25 +319,6 @@ with tab_table:
         q = inner_query.strip().lower()
         internal = [r for r in internal if q in r["中文"].lower() or q in r["英文"].lower()]
 
-    # ===== 排序 =====
-    col_sort1, col_sort2 = st.columns(2)
-
-    with col_sort1:
-        sort_field = st.selectbox(
-            "排序字段",
-            ["英文", "页码"],
-            index=0,
-            key="table_sort_field",
-        )
-
-    with col_sort2:
-        sort_order = st.radio(
-            "排序方向",
-            ["升序", "降序"],
-            horizontal=True,
-            key="table_sort_order",
-        )
-
     reverse = (sort_order == "降序")
 
     if sort_field == "英文":
@@ -340,7 +328,6 @@ with tab_table:
 
     st.caption(f"共 {len(internal)} 条")
 
-    # 显示时只保留中文、英文两列
     display_rows = [{"中文": r["中文"], "英文": r["英文"]} for r in internal]
 
     st.dataframe(
@@ -350,7 +337,6 @@ with tab_table:
         height=min(700, 40 + len(display_rows) * 35),
     )
 
-    # 下载也只包含中文、英文
     csv = "中文,英文\n" + "\n".join(
         f"{r['中文']},{r['英文']}" for r in internal
     )
