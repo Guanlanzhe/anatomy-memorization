@@ -212,10 +212,36 @@ with tab_table:
 
     terms_for_view = []
 
-    if mode == "按章节":
+        if mode == "按章节":
         chapters = get_chapters()
-        chapter = st.selectbox("选择章节", chapters, key="table_chapter")
-        terms_for_view = get_terms_by_chapter(chapter)
+        
+        # 全选/清空按钮
+        col_c1, col_c2, _ = st.columns([1, 1, 4])
+        with col_c1:
+            if st.button("全选章节", key="table_ch_sel_all"):
+                st.session_state["table_chapters"] = chapters
+        with col_c2:
+            if st.button("清空章节", key="table_ch_clear_all"):
+                st.session_state["table_chapters"] = []
+
+        # 多选框
+        selected_chapters = st.multiselect(
+            "选择章节（可多选）",
+            chapters,
+            default=st.session_state.get("table_chapters", chapters),
+            key="table_chapters_select"
+        )
+        # 同步状态以便按钮生效
+        st.session_state["table_chapters"] = selected_chapters
+
+        if not selected_chapters:
+            st.info("请至少选择一个章节。")
+            terms_for_view = []
+        else:
+            # 合并所有选中章节的术语
+            terms_for_view = []
+            for c in selected_chapters:
+                terms_for_view.extend(get_terms_by_chapter(c))
 
     else:
         morphemes = load_morphemes()
